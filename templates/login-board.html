@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login dash board page</title>
+</head>
+<body>
+<h1>Welcome to Login page</h1>
+<br>
+<form action = "select-user" method = "POST">
+    {% csrf_token %}
+    <br>
+    <label for="email">Enter your Email id:</label>
+    <input id="email" type="email" name="email" required>
+    <br>
+    <br>
+    <label for="password">Set your password:</label>
+    <input id="password" type="password" name="password" required>
+    <br>
+    <br>
+    <input type="submit" value="Login">
+</form>
+<br>
+<br>
+<a href="go-to-home">Go to home</a>
+<br>
+</body>
+</html>
