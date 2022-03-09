@@ -49,3 +49,9 @@ def selectUser(request):
         return render(request,'login.html', {"firstName": row.firstName})
     return render(request,'login-error.html')
 
+def viewUsers(request):
+    users = UserDetails.objects.filter()
+    if users:
+        return render(request,'view-users.html', {"users": users})
+    return render(request,'login-error.html')
+

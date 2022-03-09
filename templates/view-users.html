@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users dash board</title>
+</head>
+<body>
+<h1>Users details</h1>
+<br>
+<table>
+<tr>
+<th>First name</th><th>Last name</th><th>Gender</th><th>Contact number</th><th>Email Id</th>
+</tr>
+<tbody>
+{% for row in users%}
+<tr>
+<td>{{row.firstName}}</td><td>{{row.lastName}}</td><td>{{row.gender}}</td><td>{{row.contactNumber}}</td><td>{{row.email}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br>
+<br>
+<a href="go-to-home">Go to home</a>
+<br>
+</body>
+</html>

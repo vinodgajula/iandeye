@@ -11,5 +11,6 @@ urlpatterns = [
     path("admin-login-board", adminLoginDashBoard, name="admin-login-board"),
     path("insert-user", insertUser, name="insert-user"),
     path("select-user", selectUser, name="select-user"),
+    path("view-users", viewUsers, name="view-users"),
 
 ]
