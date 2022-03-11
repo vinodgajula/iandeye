@@ -24,8 +24,15 @@ SECRET_KEY = 'django-insecure-pnofz*-8c^2u$l##pha98bv9*x#1f35q2($7hw*!hr4pygl-$r
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+def get_ipaddress():
+    import socket
+    host_name = socket.gethostname()
+    ip_address = socket.gethostbyname(host_name)
+    return ip_address
 
-ALLOWED_HOSTS = []
+print("vinod", get_ipaddress())
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,14 +83,22 @@ WSGI_APPLICATION = 'iandeye.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'iandeye',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost', # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'iandeye',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost', # Or an IP Address that your DB is hosted on
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation

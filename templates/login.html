@@ -6,7 +6,21 @@
 </head>
 <body>
 <h1> Hello {{ firstName }}! Welcome to I and Eye!</h1>
-<p> {{ firstName }}</p>
+<br>
+<br>
+<a href="update-user">Change info</a>
+<br>
+<a href="delete-user">Delete my account</a>
+<form id="delete" action="delete-user" method="POST"><br />
+<input type="text" name="UserName" id="UserName" /><br /><br />
+<a href="#" onclick="myFunction()">Click here to submit form
+</a>
+</form>
+<script>
+function myFunction() {
+document.getElementById("GFG").submit();
+}
+</script>
 <br>
 <br>
 <a href="go-to-home">Go to home</a>
