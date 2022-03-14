@@ -31,7 +31,7 @@ def insertUser(request):
         data.pop("conformPassword")
         user = UserDetails(**data)
         user.save()
-        return render(request,'signup.html', {"firstName": data["firstName"]})
+        return render(request,'success.html', {"data": data})
     else:
         return render(request,'password-input-error.html')
 
@@ -46,7 +46,8 @@ def selectUser(request):
     #user = dict(user)
     for row in user:
         print(row.firstName)
-        return render(request,'login.html', {"firstName": row.firstName})
+        data["firstName"] = row.firstName
+        return render(request,'success.html', {"data": data})
     return render(request,'login-error.html')
 
 def viewUsers(request):
@@ -54,4 +55,35 @@ def viewUsers(request):
     if users:
         return render(request,'view-users.html', {"users": users})
     return render(request,'login-error.html')
+
+def deleteUser(request):
+    print("delete method triggered.")
+    data = {k: v for k, v in request.POST.items()}
+    data.pop('csrfmiddlewaretoken')
+    print(data)
+    user = UserDetails.objects.filter(email = data["email"]).delete()
+    print("account has been deleted.")
+    return render(request,'delete.html')
+
+def showUserInfo(request):
+    print("show user info method triggered.")
+    data = {k: v for k, v in request.POST.items()}
+    data.pop('csrfmiddlewaretoken')
+    user = UserDetails.objects.filter(email = data["email"])
+    for row in user:
+        #data["email"] = row.email
+        data["firstName"] = row.firstName
+        data["lastName"] = row.lastName
+        data["contactNumber"] = row.contactNumber
+        return render(request,'update.html', {"data": data})
+
+def updateUser(request):
+    print("Update user method triggered.")
+    data = {k: v for k, v in request.POST.items()}
+    data.pop('csrfmiddlewaretoken')
+    print(data)
+    email = data.pop("email")
+    user = UserDetails.objects.filter(email = email).update(**data)
+    data["email"] = email
+    return render(request,'success.html', {"data": data})
 

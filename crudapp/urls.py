@@ -13,4 +13,7 @@ urlpatterns = [
     path("select-user", selectUser, name="select-user"),
     path("view-users", viewUsers, name="view-users"),
 
+    path("delete-user", deleteUser, name="delete-user"),
+    path("show-user-info", showUserInfo, name="show-user-info"),
+    path("update-user", updateUser, name="update-user"),
 ]

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update page</title>
+</head>
+<body>
+<br>
+<h1> Hello {{ data.firstName }}! Welcome to update details page!</h1>
+<br>
+<form id="update-user" action="update-user" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="email" name="email" value={{ data.email }}>
+    <label for="contactNumber">Modify your contact number:</label>
+    <input id="contactNumber" type="text" name="contactNumber" value={{ data.contactNumber }} required>
+    <br>
+    <br>
+    <label for="firstName">Modify your first name:</label>
+    <input id="firstName" type="text" name="firstName" value={{ data.firstName }} required>
+    <br>
+    <br>
+    <label for="lastName">Modify your last name:</label>
+    <input id="lastName" type="text" name="lastName" value={{ data.lastName }} required>
+    <br>
+    <br>
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

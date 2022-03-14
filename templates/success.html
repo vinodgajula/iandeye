@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Successful page</title>
+</head>
+<body>
+<h1> Hello {{ data.firstName }}! Welcome to I and Eye!</h1>
+<br>
+<form id="show-user" action="show-user-info" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="email" name="email" value={{ data.email }}>
+    <a href="#" onclick="showUserInfo()">Change my info</a>
+</form>
+<form id="delete" action="delete-user" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="email" name="email" value={{ data.email }}>
+<a href="#" onclick="deleteMyAccount()">Delete my account</a>
+</form>
+<script>
+function deleteMyAccount() {
+document.getElementById("delete").submit();
+}
+function showUserInfo() {
+document.getElementById("show-user").submit();
+}
+</script>
+<a href="go-to-home">Go to home</a>
+<br>
+</body>
+</html>
