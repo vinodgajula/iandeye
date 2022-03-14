@@ -5,6 +5,7 @@
     <title>Sign up dash board page</title>
 </head>
 <body>
+<br>
 <h1>Welcome to Sign up page</h1>
 <form action = "insert-user" method = "POST">
     {% csrf_token %}
@@ -13,11 +14,11 @@
     <input id="email" type="email" name="email" required>
     <br>
     <br>
-    <label for="password">Set your password:</label>
+    <label for="password">Enter password:</label>
     <input id="password" type="password" name="password" required>
     <br>
     <br>
-    <label for="conformPassword">Conform your password:</label>
+    <label for="conformPassword">Conform password:</label>
     <input id="conformPassword" type="password" name="conformPassword" required>
     <br>
     <br>
@@ -41,9 +42,9 @@
     <label for="other">Other</label>
     <br>
     <br>
-    <input type="text" name="region" list="country"/>
-    <datalist id="country" aria-required="true">
-        <option>select country</option>
+    <label for="country">Select your country:</label>
+    <select name="region" id="country" required>
+    <option>select country</option>
         <option value="AF">Afghanistan</option>
         <option value="AX">Aland Islands</option>
         <option value="AL">Albania</option>
@@ -296,7 +297,7 @@
         <option value="YE">Yemen</option>
         <option value="ZM">Zambia</option>
         <option value="ZW">Zimbabwe</option>
-    </datalist>
+    </select>
     <br>
     <br>
     <input type="checkbox" id="phone" name="availableResources" value="Phone">
