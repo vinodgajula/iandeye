@@ -10,12 +10,12 @@
 <br>
 <table>
 <tr>
-<th>First name</th><th>Last name</th><th>Gender</th><th>Contact number</th><th>Email Id</th>
+<th>First name</th><th>Last name</th><th>Gender</th>
 </tr>
 <tbody>
 {% for row in users%}
 <tr>
-<td>{{row.firstName}}</td><td>{{row.lastName}}</td><td>{{row.gender}}</td><td>{{row.contactNumber}}</td><td>{{row.email}}</td>
+<td>{{row.firstName}}</td><td>{{row.lastName}}</td><td>{{row.gender}}</td>
 </tr>
 {% endfor %}
 </tbody>
